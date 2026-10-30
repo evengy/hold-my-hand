@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "type": "command",
+        "matcher": "bash|powershell|write_bash|write_powershell",
+        "bash": "printf '%s' '{\"permissionDecision\":\"ask\",\"permissionDecisionReason\":\"Workspace policy: confirm every agent shell command.\"}'",
+        "powershell": "Write-Output '{\"permissionDecision\":\"ask\",\"permissionDecisionReason\":\"Workspace policy: confirm every agent shell command.\"}'",
+        "timeoutSec": 5
+      },
+      {
+        "type": "command",
+        "matcher": "create|edit|str_replace_editor|apply_patch",
+        "bash": "sh .github/hooks/guard-protected-edits.sh",
+        "powershell": "& ([scriptblock]::Create((Get-Content -Raw -LiteralPath '.github/hooks/guard-protected-edits.ps1')))",
+        "timeoutSec": 10
+      }
+    ]
+  }
+}

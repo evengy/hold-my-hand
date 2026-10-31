@@ -28,7 +28,7 @@ Follow [recipes/README.md](../recipes/README.md) for location, naming, status, a
 2. Read the [project instructions](../instructions/project.instructions.md), [docs index](../../docs/README.md), relevant docs, and the actual code or configuration the request concerns. Read existing recipes only when relevant. Do not plan from docs alone when relevant code is available.
 3. Use evidence from the project to recommend a simple strategy that fits its organization and conventions. Distinguish observed facts from assumptions.
 4. Write the recipe in a developer-ready order. Include exact relevant paths and verification steps, but do not prescribe unrelated refactors. Mark any step that changes protected configuration (see [copilot-instructions.md](../copilot-instructions.md)) so Cook confirms it with the user.
-5. Set `Status: ready` only after the user confirms the plan; otherwise keep `Status: draft` and list the open questions.
+5. After the user confirms the plan, change `Status: draft` to `Status: ready`. Until then, keep the recipe in `draft` and list the open questions.
 
 ## Recipe format
 
